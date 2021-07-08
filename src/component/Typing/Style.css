@@ -1,0 +1,27 @@
+.auto-type {
+    display: 'flex';
+    /* justify-content: 'center';
+    align-items: "center";
+    height: '100vh'; */
+    /* background-color: aqua; */
+    font-size: 40px;
+    margin-left: 33%;
+    margin-top: 45%;
+    color:brown
+
+}
+
+.intro {
+    font-size: 25px;
+    color:azure;
+    margin-left: 33%;
+    margin-bottom: 10px;
+}
+
+.expend { 
+    display: flex; 
+  
+    margin-left: 40%;
+    color: white;
+    
+}
