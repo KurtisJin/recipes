@@ -6,8 +6,8 @@ import { CssBaseline } from '@material-ui/core/';
 import Header from "./component/Header/Header"
 import Typing from "./component/Typing/Typing"
 import { Collapse } from "@material-ui/core/"
-import SearchResults from './component/SearchResults/SearchResults'
-
+import RandomFourReceipes from './component/RandomTwoReceipes/RandomTwoReceipes'
+import Wrapper from './component/Wrapper/index'
 
 const useStyles = makeStyles((theme) => ({
     root: {
@@ -25,12 +25,14 @@ function App() {
     },[])
     const classes = useStyles();
     return <div className={classes.root}>
-        <CssBaseline />
-        <Header />
-        <Collapse in={checked} {...(checked ? { timeout: 1000 } : {})} collapsedHeight={80}> 
-            <Typing />
-        </Collapse>
-        <SearchResults/>
+        <Wrapper>
+            <CssBaseline />
+            <Header />
+            <Collapse in={checked} {...(checked ? { timeout: 1000 } : {})} collapsedHeight={80}> 
+                <Typing />
+            </Collapse>
+            <RandomFourReceipes/>
+        </Wrapper>
     </div>
 }
 

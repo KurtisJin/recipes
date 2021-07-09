@@ -67,7 +67,7 @@ const useStyles = makeStyles((theme) => ({
       }, [open]);
   
     return (
-      <div className={classes.root}>
+      <div className={classes.root} id="header">
         <AppBar position="static" className={classes.appbar} elevation={0}>
           <Toolbar>
             <IconButton edge="start" className={classes.menuButton} color="inherit" aria-label="menu">
