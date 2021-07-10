@@ -2,7 +2,7 @@ import React from "react";
 import words from "./words";
 import Typed from 'typed.js';
 import { classes } from "istanbul-lib-coverage";
-import "./style.css"
+import "./Style.css"
 // import { IconButton } from "@material-ui/core";
 // import ExpandMoreIcon from '@material-ui/icons/ExpandMore';
 // import ExpendArrow from '../ExpendArrow/ExpendArrow'
