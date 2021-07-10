@@ -17,12 +17,12 @@ import ExpandMoreIcon from '@material-ui/icons/ExpandMore';
 import MoreVertIcon from '@material-ui/icons/MoreVert';
 
 
-
 const useStyles = makeStyles((theme) => ({
   root: {
-    maxWidth: 400,
+    maxWidth: 300,
     margin: '10px',
-    marginTop: '20%',
+    marginTop: '10%',
+    
   },
   media: {
     height: 240,
@@ -49,17 +49,16 @@ const useStyles = makeStyles((theme) => ({
   }
 }));
 
-export default function RandomCardTwo() {
+export default function RandomCardOne() {
     const classes = useStyles();
     const [expanded, setExpanded] = React.useState(false);
-    
+  
     const handleExpandClick = () => {
       setExpanded(!expanded);
-
     };
   
     return (
-    
+     
       <Card className={classes.root}>
         <CardHeader
           avatar={
@@ -73,7 +72,7 @@ export default function RandomCardTwo() {
         />
         <CardMedia
           className={classes.media}
-          image={process.env.PUBLIC_URL + "cooking4.jpg"}
+          image={process.env.PUBLIC_URL + "cooking1.jpg"}
           title="Paella dish"
         />
         <CardContent>

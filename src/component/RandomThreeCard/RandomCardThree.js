@@ -19,9 +19,9 @@ import MoreVertIcon from '@material-ui/icons/MoreVert';
 
 const useStyles = makeStyles((theme) => ({
   root: {
-    maxWidth: 400,
+    maxWidth: 300,
     margin: '10px',
-    marginTop: '20%',
+    marginTop: '10%',
     
   },
   media: {
