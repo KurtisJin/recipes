@@ -4,17 +4,17 @@
     align-items: "center";
     height: '100vh'; */
     /* background-color: aqua; */
-    font-size: 40px;
-    margin-left: 33%;
-    margin-top: 45%;
-    color:brown
+    font-size: 65px;
+    margin-left: 20%;
+    margin-top: 25%;
+    color:rgb(97, 165, 42);
 
 }
 
 .intro {
-    font-size: 25px;
+    font-size: 35px;
     color:azure;
-    margin-left: 33%;
+    margin-left: 20%;
     margin-bottom: 10px;
 }
 

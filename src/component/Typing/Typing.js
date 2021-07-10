@@ -5,7 +5,7 @@ import { classes } from "istanbul-lib-coverage";
 import "./style.css"
 // import { IconButton } from "@material-ui/core";
 // import ExpandMoreIcon from '@material-ui/icons/ExpandMore';
-import ExpendArrow from '../ExpendArrow/ExpendArrow'
+// import ExpendArrow from '../ExpendArrow/ExpendArrow'
 
 class Typing extends React.Component {
   
@@ -39,8 +39,7 @@ class Typing extends React.Component {
           </br><br>
           </br><br>
           </br><br>
-          </br><br>
-          </br><br>
+          
           </br>
           <p className="intro">Welcome! You can:
           </p>
@@ -53,7 +52,7 @@ class Typing extends React.Component {
           {/* <div className="expend"> */}
            
               
-                <ExpendArrow />
+              
               
            
           {/* </div> */}
