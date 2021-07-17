@@ -1,9 +1,10 @@
 import React, { useEffect, useState } from 'react';
 import { makeStyles } from '@material-ui/core/styles';
 import Header from '../component/Header/Header';
-import { FormBtn, Search } from '../component/Form';
-import ClickByType from '../component/ClickByType';
+import { FormBtn, Search } from '../component/Form/Index.js';
+import ButtonBaseContainer from '../component/ButtonBaseContainer/ButtonBaseContainer.js';
 import API from '../utils/API'
+import Footer from '../component/Footer/Footer';
 
 const useStyles = makeStyles((theme) => ({
     // root: {
@@ -19,34 +20,38 @@ const useStyles = makeStyles((theme) => ({
 
 }));
 
-function Receipes() {
-    const [receipes, setReceipes] = useState([]);
-    const [formObject, setFormObject] = useState({
-        title:" ",
-        name: "",
 
-    })
-}
 
-useEffect(() => {
-    SearchRecipes()
-}, [])
 
-function SearchRecipes() {
-    API.getReceipes()
-    .then(res =>
-        setRecipes(res.data)
-        )
-        .catch(err => console.log(err))
-}
 
-function handleInputChange(event) {
-    setFormObject({name, value} = event.target);
-    setFormObject({...formObject, [name]: value})
-}
+
+
+// function handleInputChange(event) {
+//     setFormObject({name, value} = event.target);
+//     setFormObject({...formObject, [name]: value})
+// }
 
 
 export default function ProfilePage() {
+    useEffect(() => {
+        SearchRecipes()
+    }, [])
+
+    const [receipes, setRecipes] = useState([]);
+    const [formObject, setFormObject] = useState({
+        title: " ",
+        name: "",
+
+    })
+
+    function SearchRecipes() {
+        API.getRecipe()
+            .then(res =>
+                setRecipes(res.data),
+                // console.log(res.data)
+            )
+            .catch(err => console.log(err))
+    }
 
     const classes = useStyles();
 
@@ -56,15 +61,15 @@ export default function ProfilePage() {
             <Header />
             <form>
                 <Search
-                onChange={handleInputChange}
-                placeholder="Type in your search"
+                    // onChange={handleInputChange}
+                    placeholder="Type in your search"
                 />
-                <FormBtn 
-                    onClick={handleFormSubmit}
+                <FormBtn
+                 onClick={SearchRecipes}
                 />
             </form>
             <div className={classes.secondary}>
-                <ClickByType />
+                <ButtonBaseContainer />
             </div>
             <Footer />
         </div>
