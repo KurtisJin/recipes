@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-
+import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 import { makeStyles } from '@material-ui/core/styles';
 import { CssBaseline } from '@material-ui/core/';
 import StationMedia from './component/StationMedia/StationMedia'
@@ -11,53 +11,20 @@ import Wrapper from './component/Wrapper/index'
 import RandomCardTitle from './component/RandomTwoReceipes/RandomThreeTitle/RandomThreeTitle'
 import MediaTitle from './component/MediaHolder/MediaTitle/MediaTitle'
 import Footer from './component/Footer/Footer'
-
-const useStyles = makeStyles((theme) => ({
-    root: {
-        minHeight: '100vh',
-        backgroundImage: `url(${process.env.PUBLIC_URL + "cooking3.jpg"})`,
-        backgroundRepeat: "no-repeat",
-        backgroundSize: 'cover',
-    },
+import Signup from './Pages/Signup/Signup'
+import Landing from './Pages/Landing/Landing';
+import ProfilePage from './Pages/ProfilePage'
 
 
-}));
 
 function App() {
-    const [checked, setChecked] = useState(false)
-    useEffect(() => {
-        setChecked(true);
-    },[])
-    const classes = useStyles();
-    return <div className={classes.root}>
-        <Wrapper>
-            <CssBaseline />
-            <Header />
-            <Collapse in={checked} {...(checked ? { timeout: 1000 } : {})} collapsedHeight={80}> 
-                <Typing />
-            </Collapse>
-            <br></br>
-            <br></br>
-            <br></br>
-            <br></br>
-            <br></br>
-            <br></br>
-            <br></br>
-            <br></br>
-            <br></br>
-            <br></br>
-            <Collapse in={checked} {...(checked ? { timeout: 1000 } : {})} collapsedHeight={80}> 
-                <MediaTitle />
-                <StationMedia />
-            </Collapse>
-            <br></br>
-            <br></br>
-            <br></br>
-            <RandomCardTitle />
-            <RandomFourReceipes/>
-            <Footer/>
-        </Wrapper>
+    return (
+        <div>
+        <Router>
+    <ProfilePage/>
+        </Router>
     </div>
+    )
 }
 
 export default App;

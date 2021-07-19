@@ -10,7 +10,7 @@ const useStyles = makeStyles((theme) => ({
 
   }));
 
-export default function Button() {
+export default function FormBtn() {
     const classes = useStyles();
 
     return (

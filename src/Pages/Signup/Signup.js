@@ -1,8 +1,8 @@
 import React from 'react';
 import TextField from '@material-ui/core/TextField';
-import { makeStyles, } from '@material-ui/core/styles';
+import { makeStyles, createStyles} from '@material-ui/core/styles';
 
-const useStyles = makeStyles((Theme) =>
+const useStyles = makeStyles((theme) =>
   createStyles({
     root: {
       '& .MuiTextField-root': {
@@ -12,8 +12,7 @@ const useStyles = makeStyles((Theme) =>
     },
   }),
 );
-
-export default function FormPropsTextFields() {
+ function Signup() {
   const classes = useStyles();
 
   return (
@@ -41,3 +40,5 @@ export default function FormPropsTextFields() {
     </form>
   );
 }
+
+export default Signup;
