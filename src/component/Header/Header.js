@@ -70,11 +70,11 @@ const useStyles = makeStyles((theme) => ({
       <div className={classes.root} id="header">
         <AppBar position="static" className={classes.appbar} elevation={0}>
           <Toolbar>
-            <IconButton edge="start" className={classes.menuButton} color="inherit" aria-label="menu">
+            {/* <IconButton edge="start" className={classes.menuButton} color="inherit" aria-label="menu">
               <MenuIcon />
-            </IconButton>
+            </IconButton> */}
             <Typography variant="h6" className={classes.title}>
-              News
+              TASTE OF HEAVEN
             </Typography>
             
             <Button ref={anchorRef}
