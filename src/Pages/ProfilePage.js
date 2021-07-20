@@ -13,7 +13,7 @@ import { alpha } from '@material-ui/core/styles';
 const useStyles = makeStyles((theme) => ({
     root: {
         minHeight: '100vh',
-        backgroundImage: `url(${process.env.PUBLIC_URL + "cooking3.jpg"})`,
+        backgroundImage: `url(${process.env.PUBLIC_URL + "cooking4.jpg"})`,
         backgroundRepeat: "no-repeat",
         backgroundSize: 'cover',
     },
