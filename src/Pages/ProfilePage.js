@@ -69,7 +69,7 @@ export default function ProfilePage() {
                 />
             </form>
             <div className={classes.secondary}>
-                <ButtonBaseContainer />
+                <ButtonBaseContainer images={receipes}/>
             </div>
             <Footer />
         </div>
