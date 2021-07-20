@@ -21,37 +21,34 @@ const useStyles = makeStyles((theme) => ({
 }));
 
 
-
-
-
-
-
-// function handleInputChange(event) {
-//     setFormObject({name, value} = event.target);
-//     setFormObject({...formObject, [name]: value})
-// }
-
-
 export default function ProfilePage() {
     useEffect(() => {
-        SearchRecipes()
+        // SearchRecipes()
     }, [])
 
-    const [receipes, setRecipes] = useState([]);
+    const [recipes, setRecipes] = useState([]);
     const [formObject, setFormObject] = useState({
         title: " ",
-        name: "",
+        foodName: "peaches",
 
     })
-
-    function SearchRecipes() {
-        API.getRecipe()
-            .then(res =>
-                setRecipes(res.data),
-                // console.log(res.data)
-            )
-            .catch(err => console.log(err))
+    function SearchRecipes(event) {
+        event.preventDefault();
+        const userQuery = formObject.foodName
+        // API.getRecipe(userQuery)
+        //     .then(res =>
+        //         setRecipes(res.data),
+                console.log(userQuery)
+            // )
+            // .catch(err => console.log(err))
     }
+    
+    function handleInputChange(event) {
+        const newFood = event.target.value;
+        setFormObject({ ...formObject, foodName: newFood })
+        console.log(formObject)
+    }
+
 
     const classes = useStyles();
 
@@ -59,23 +56,24 @@ export default function ProfilePage() {
 
         <div className={classes.root}>
             <Header />
-            <form>
-                <Search
-                    // onChange={handleInputChange}
+            <form onSubmit={SearchRecipes} >
+                <input
+                    type="text"
+                    onChange={handleInputChange}
                     placeholder="Type in your search"
                 />
-                <FormBtn
-                 onClick={SearchRecipes}
-                />
+                <input type="submit"
+                value="search"/>
+                 
             </form>
-            <div className={classes.secondary}>
-                <ButtonBaseContainer images={receipes}/>
-            </div>
-            <Footer />
+                <div className={classes.secondary}>
+                    <ButtonBaseContainer images={recipes} />
+                </div>
+                <Footer />
         </div>
 
 
-    )
+            )
 }
 
 
