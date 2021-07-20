@@ -99,6 +99,7 @@ export default function ButtonBaseContainer(props) {
 
   return (
     <div className={classes.root}>
+
       {props.images.map((image) => (
         <ButtonBase
           focusRipple
@@ -106,13 +107,13 @@ export default function ButtonBaseContainer(props) {
           className={classes.image}
           focusVisibleClassName={classes.focusVisible}
           style={{
-            width: image.width,
+            flex: 1,
           }}
         >
           <span
             className={classes.imageSrc}
             style={{
-              backgroundImage: `url(${image.url})`,
+              backgroundImage: `url(${image.image})`,
             }}
           />
           <span className={classes.imageBackdrop} />
