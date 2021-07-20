@@ -12,8 +12,9 @@ import RandomCardTitle from './component/RandomTwoReceipes/RandomThreeTitle/Rand
 import MediaTitle from './component/MediaHolder/MediaTitle/MediaTitle'
 import Footer from './component/Footer/Footer'
 import Signup from './Pages/Signup/Signup'
+import SignupTwo from './Pages/Signup/SignupTwo'
 import Landing from './Pages/Landing/Landing';
-import ProfilePage from './Pages/ProfilePage'
+import ProfilePage from './Pages/ProfilePage';
 
 
 
@@ -21,7 +22,8 @@ function App() {
     return (
         <div>
         <Router>
-    <ProfilePage/>
+    {/* <ProfilePage/> */}
+    <SignupTwo />
         </Router>
     </div>
     )
