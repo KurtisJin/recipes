@@ -22,7 +22,7 @@ function App() {
     return (
         <div>
         <Router>
-    <Landing/>
+    <ProfilePage/>
         </Router>
     </div>
     )

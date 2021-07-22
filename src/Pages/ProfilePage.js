@@ -8,7 +8,7 @@ import Footer from '../component/Footer/Footer';
 import Typing from '../Pages/Signup/ProfileTyping/Typing'
 import words from '../Pages/Signup/ProfileTyping/words';
 import { alpha } from '@material-ui/core/styles';
-
+import DropDown from '../component/DropDowns/DropDown'
 
 const useStyles = makeStyles((theme) => ({
     root: {
@@ -108,7 +108,7 @@ export default function ProfilePage() {
                 />
                 <input className={classes.button} type="submit"
                 value="search"/>
-                 
+                 <DropDown/>
             </form>
                 <div className={classes.secondary}>
                     <ButtonBaseContainer images={recipes} />
