@@ -2,7 +2,7 @@ import React from "react";
 import words from "./words";
 import Typed from 'typed.js';
 import { classes } from "istanbul-lib-coverage";
-import "./Style.css"
+import "./style.css"
 // import { IconButton } from "@material-ui/core";
 // import ExpandMoreIcon from '@material-ui/icons/ExpandMore';
 // import ExpendArrow from '../ExpendArrow/ExpendArrow'
@@ -30,17 +30,6 @@ class Typing extends React.Component {
     render() {
        return (
         <div className="landingPage">
-          <br>
-          </br>
-          <br>
-          </br>
-          <br>
-          </br><br>
-          </br><br>
-          </br><br>
-          </br><br>
-          
-          </br>
           <p className="intro">Welcome! You can:
           </p>
           <span className="auto-type"

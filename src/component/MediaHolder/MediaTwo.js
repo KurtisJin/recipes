@@ -11,7 +11,7 @@ const useStyles = makeStyles((theme) => ({
         // display: 'flex',
         justifyContent: 'center',
         alignItems: 'center',
-        margin: '20px',
+        margin: '5px',
     }
 
 }));
@@ -19,7 +19,7 @@ const useStyles = makeStyles((theme) => ({
 export default function Media()  {
     const classes = useStyles();
     return (
-     <ReactPlayer width="419px" height="235px"  className={classes.mediaTwo} url='https://www.youtube.com/watch?v=ysz5S6PUM-U' playing />
+     <ReactPlayer width="419px" height="235px" controls="true" playing="false" className={classes.mediaTwo} url='https://www.youtube.com/watch?v=ysz5S6PUM-U' playing />
     )
 
 }

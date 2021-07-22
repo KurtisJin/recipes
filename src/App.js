@@ -22,8 +22,7 @@ function App() {
     return (
         <div>
         <Router>
-    {/* <ProfilePage/> */}
-    <SignupTwo />
+    <Landing/>
         </Router>
     </div>
     )

@@ -19,7 +19,7 @@ const useStyles = makeStyles((theme) => ({
 export default function Media()  {
     const classes = useStyles();
     return (
-     <ReactPlayer width="419px" height="235px"   className={classes.mediaOne} url='https://www.youtube.com/watch?v=mhDJNfV7hjk&ab_channel=GordonRamsay' playing />
+     <ReactPlayer width="419px" height="235px" controls="true" playing="false"  className={classes.mediaOne} url='https://www.youtube.com/watch?v=mhDJNfV7hjk&ab_channel=GordonRamsay' playing />
     )
 
 }
