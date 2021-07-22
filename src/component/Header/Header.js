@@ -12,12 +12,16 @@ import Paper from '@material-ui/core/Paper';
 import Popper from '@material-ui/core/Popper';
 import MenuItem from '@material-ui/core/MenuItem';
 import MenuList from '@material-ui/core/MenuList';
+import Container from '@material-ui/core/Container';
+import Grid from '@material-ui/core/Grid';
+import Box from '@material-ui/core/Box';
 
 const useStyles = makeStyles((theme) => ({
     root: {
       flexGrow: 1,
       width: '90%',
       margin: '0 auto',
+      // backgroundColor: 'red',
     },
     appbar: {
         background: 'none',
@@ -26,9 +30,14 @@ const useStyles = makeStyles((theme) => ({
     menuButton: {
         marginRight: theme.spacing(2),
       },
-      title: {
-        flexGrow: 1,
-      },
+    title: {
+      flexGrow: 1,
+    },
+    
+    button: {
+      marginLeft: "500px",
+    }
+
     }),
   );
   
@@ -68,16 +77,18 @@ const useStyles = makeStyles((theme) => ({
   
     return (
       <div className={classes.root} id="header">
+        <Box px={{ xs: 3, sm: 10 }} py={{ xs: 5, sm: 10 }} bgcolor="none" color="white">
+        <Container maxWidth='lg'>
+        <Grid container spacing={5}>
+        <Grid item xs={12} sm={4}>
         <AppBar position="static" className={classes.appbar} elevation={0}>
           <Toolbar>
-            <IconButton edge="start" className={classes.menuButton} color="inherit" aria-label="menu">
-              <MenuIcon />
-            </IconButton>
+           
             <Typography variant="h6" className={classes.title}>
-              News
+              Pantry2Table
             </Typography>
             
-            <Button ref={anchorRef}
+            <Button ref={anchorRef} className={classes.button}
           aria-controls={open ? 'menu-list-grow' : undefined}
           aria-haspopup="true"
           onClick={handleToggle}color="inherit">Login</Button>
@@ -104,6 +115,10 @@ const useStyles = makeStyles((theme) => ({
         </Popper>
           </Toolbar>
         </AppBar>
+        </Grid>
+        </Grid>
+        </Container>
+        </Box>
       </div>
     );
     } 

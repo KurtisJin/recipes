@@ -17,9 +17,10 @@ const useStyles = makeStyles((theme) => ({
         backgroundImage: `url(${process.env.PUBLIC_URL + "cooking3.jpg"})`,
         backgroundRepeat: "no-repeat",
         backgroundSize: 'cover',
+       
+        
     },
-
-
+    
 }));
 
 function Landing() {
@@ -30,24 +31,13 @@ function Landing() {
     const classes = useStyles();
     return (
         <div className={classes.root}>
-            <Wrapper>
+                <Wrapper>
                 <CssBaseline />
                 <Header />
                 <Collapse in={checked} {...(checked ? { timeout: 1000 } : {})} collapsedHeight={80}>
                     <Typing />
                 </Collapse>
-                <br></br>
-                <br></br>
-                <br></br>
-                <br></br>
-                <br></br>
-                <br></br>
-                <br></br>
-                <br></br>
-                <br></br>
-                <br></br>
                 <Collapse in={checked} {...(checked ? { timeout: 1000 } : {})} collapsedHeight={80}>
-                    <MediaTitle />
                     <StationMedia />
                 </Collapse>
                 <br></br>
@@ -55,8 +45,9 @@ function Landing() {
                 <br></br>
                 <RandomCardTitle />
                 <RandomFourReceipes />
+                </Wrapper>
                 <Footer />
-            </Wrapper>
+            
         </div>
     )
 }

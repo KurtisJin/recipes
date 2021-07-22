@@ -6,7 +6,7 @@
     /* background-color: aqua; */
     font-size: 65px;
     margin-left: 20%;
-    margin-top: 25%;
+    margin-top: 20%;
     color:rgb(97, 165, 42);
 
 }
@@ -24,4 +24,10 @@
     margin-left: 40%;
     color: white;
     
+}
+
+.landingPage {
+    /* background-color: red; */
+    margin-bottom: 250px;
+
 }
