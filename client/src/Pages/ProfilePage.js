@@ -65,7 +65,6 @@ const useStyles = makeStyles((theme) => ({
 
 export default function ProfilePage() {
     useEffect(() => {
-        // SearchRecipes()
     }, [])
 
     const [recipes, setRecipes] = useState([]);
@@ -77,12 +76,12 @@ export default function ProfilePage() {
     function SearchRecipes(event) {
         event.preventDefault();
         const userQuery = formObject.foodName
-        // API.getRecipe(userQuery)
-        //     .then(res =>
-        //         setRecipes(res.data),
-                console.log(userQuery)
-            // )
-            // .catch(err => console.log(err))
+         API.getRecipe(userQuery)
+             .then(res =>
+                 setRecipes(res.data),
+                // console.log(userQuery)
+             )
+             .catch(err => console.log(err))
     }
     
     function handleInputChange(event) {
