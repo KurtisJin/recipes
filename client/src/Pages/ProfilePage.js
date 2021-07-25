@@ -8,16 +8,25 @@ import Footer from '../component/Footer/Footer';
 import Typing from '../Pages/Signup/ProfileTyping/Typing'
 import words from '../Pages/Signup/ProfileTyping/words';
 import { alpha } from '@material-ui/core/styles';
-import DropDown from '../component/DropDowns/DropDown'
+// import DropDown from '../component/DropDowns/DropDown'
 
 const useStyles = makeStyles((theme) => ({
     root: {
+
         minHeight: '100vh',
         backgroundImage: `url(${process.env.PUBLIC_URL + "cooking4.jpg"})`,
         backgroundRepeat: "no-repeat",
         backgroundSize: 'cover',
     },
 
+    instructions: {
+     
+        color: "teal",
+        fontSize: "20px",
+        marginLeft: "20%",
+        marginTop: "10px",
+        
+    },
     
     searchBar: {
         
@@ -107,7 +116,8 @@ export default function ProfilePage() {
                 />
                 <input className={classes.button} type="submit"
                 value="search"/>
-                 <DropDown/>
+                 {/* <DropDown/> */}
+                 <h3 className={classes.instructions}>Please type in the ingredient to search for you're receipe you desire. <br></br>For multiple ingredients, please seperate by a comma.</h3>
             </form>
                 <div className={classes.secondary}>
                     <ButtonBaseContainer images={recipes} />
