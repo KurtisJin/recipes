@@ -25,7 +25,7 @@ router.post("/register", async (req, res) => {
   }
 });
 
-router.post("/login", async (req, res) => {
+router.get("/login", async (req, res) => {
   try {
     const loginUser = await user.findOne({ username: req.body.username });
     console.log(loginUser);
@@ -55,16 +55,11 @@ router.post("/login", async (req, res) => {
   }
 });
 
-// router.get('/currentUser', (req, res) => {
-//   req.session = {
-//     isLoggedIn: true,
-//   }
-//   if (req.session.isLoggedIn) {
-//     res.status(200).send();
-//   } else {
-//     res.status(401)
-//   }
-// })
+router.get('/logout', (req, res) => {
+  req.session = {
+    isLoggedIn: false,
+  }
+})
 
 // router.get('/currentUser', (req, res) => {
 //   // don't actually do this this comes from the middleware
