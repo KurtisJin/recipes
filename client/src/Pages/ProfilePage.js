@@ -21,12 +21,22 @@ const useStyles = makeStyles((theme) => ({
 
     instructions: {
      
-        color: "teal",
-        fontSize: "20px",
-        marginLeft: "20%",
+        color: "white",
+        textShadow: "white",
+        fontSize: "15px",
+        marginLeft: "18%",
         marginTop: "10px",
-        
+        border:"solid 2px",
+        borderColor: "crimson",
+        '&:hover': {
+            borderColor: "white",
+          },
+        width: "50%",
+        textAlign: "center",
+        borderRadius: "10px"
     },
+
+    
     
     searchBar: {
         
@@ -108,16 +118,20 @@ export default function ProfilePage() {
             <Header />
             <h2 className={classes.searchHeader}><Typing/></h2>
             <form className={classes.form} onSubmit={SearchRecipes} >
+            <h3 className={classes.instructions}><span className={classes.span}>Please type in the ingredient to search for you're receipe you desire. <br></br>For multiple ingredients, please seperate by a comma and a + sign. <br></br>
+                 i.e chicken, +lettuce</span></h3>
+
                 <input
                     className={classes.searchBar}
                     type="text"
                     onChange={handleInputChange}
                     placeholder="Type in your search"
                 />
+                
                 <input className={classes.button} type="submit"
                 value="search"/>
                  {/* <DropDown/> */}
-                 <h3 className={classes.instructions}>Please type in the ingredient to search for you're receipe you desire. <br></br>For multiple ingredients, please seperate by a comma.</h3>
+                 
             </form>
                 <div className={classes.secondary}>
                     <ButtonBaseContainer images={recipes} />
