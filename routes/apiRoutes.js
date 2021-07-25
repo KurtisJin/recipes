@@ -3,7 +3,7 @@ const db = require("../models");
 const bcrypt = require("bcrypt");
 const user = require("../models/user");
 
-const saltRounds = 10; 
+const saltRounds = 10;
 
 router.post("/register", async (req, res) => {
   console.log(req.body);
@@ -42,5 +42,29 @@ router.post("/login", async (req, res) => {
     res.status(500).send("Internal Server error Occured");
   }
 });
+
+router.get('/currentUser', (req, res) => {
+  req.session = {
+    isLoggedIn: true,
+  }
+  if (req.session.isLoggedIn) {
+    res.status(200).send();
+  } else {
+    res.status(401)
+  }
+})
+
+// router.get('/currentUser', (req, res) => {
+//   // don't actually do this this comes from the middleware
+//   req.session = {
+//     isLoggedIn: true,
+//   }
+// ​
+//   if (req.session.isLoggedIn) {
+//     res.status(200).send();
+//   } else {
+//     res.status(401).send();
+//   }
+// });
 
 module.exports = router;
