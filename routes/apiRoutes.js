@@ -55,16 +55,16 @@ router.post("/login", async (req, res) => {
   }
 });
 
-// router.get('/currentUser', (req, res) => {
-//   req.session = {
-//     isLoggedIn: true,
-//   }
-//   if (req.session.isLoggedIn) {
-//     res.status(200).send();
-//   } else {
-//     res.status(401)
-//   }
-// })
+router.get('/currentUser', (req, res) => {
+  req.session = {
+    isLoggedIn: true,
+  }
+  if (req.session.isLoggedIn) {
+    res.status(200).send();
+  } else {
+    res.status(401)
+  }
+})
 
 // router.get('/currentUser', (req, res) => {
 //   // don't actually do this this comes from the middleware
