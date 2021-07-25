@@ -27,6 +27,11 @@ const useStyles = makeStyles((theme) =>
       fontSize: "35px",
       marginBottom: "50px"
     },
+
+    link: {
+      marginLeft: "5px",
+      marginTop: "7px",
+    }
     
   }),
 );
@@ -46,8 +51,9 @@ const useStyles = makeStyles((theme) =>
             autoComplete="current-password"
           />
           <input type="submit" value="Submit" className="btn btn-success" />
-          
-          <input type="return" value="Return" className="btn btn-success" />  
+          <input type="return" value="Return" className="btn btn-success" />
+          <br></br>
+          <a className={classes.link} href="/signup">Signup Here!</a>
             
       </form>
     </div>
