@@ -91,7 +91,7 @@ const useStyles = makeStyles((theme) => ({
             <Button ref={anchorRef} className={classes.button}
           aria-controls={open ? 'menu-list-grow' : undefined}
           aria-haspopup="true"
-          onClick={handleToggle}color="inherit">Login</Button>
+          onClick={handleToggle}color="inherit">Menu</Button>
           <Popper open={open} anchorEl={anchorRef.current} role={undefined} transition disablePortal>
           {({ TransitionProps, placement }) => (
             <Grow

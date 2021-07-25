@@ -19,22 +19,15 @@ const useStyles = makeStyles((theme) =>
     <form className={classes.root} noValidate autoComplete="off">
       <div>
         
-        <TextField required id="standard-required" label="Required" defaultValue="First Name" />
-        <TextField disabled id="standard-disabled" label="Required" defaultValue="Last Name" />
+        <TextField required id="standard-required" label="Email" defaultValue="" />
         <TextField
           id="standard-password-input"
-          label="New Password"
+          required id="standard-required"
+          label="Password"
           type="password"
           autoComplete="current-password"
         />
-        <TextField
-          id="standard-password-input"
-          label="Password"
-          type="password"
-          autoComplete="Confirm-password"
-
-          //TODO:got to figure out how to validate!
-        />
+        
         
       </div>
     </form>

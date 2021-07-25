@@ -94,7 +94,7 @@ class Form extends React.Component {
   render() {
     return (
       <div className="Signup-Page">
-        <h1>Taste Of Heaven Sign Up Page</h1>
+        <h1 className="title">Pantry2Table</h1>
         <form onSubmit={this.handleSubmit}>
   
           <div class="form-group">
@@ -153,7 +153,8 @@ class Form extends React.Component {
               <div className="text-danger">{this.state.errors.confirm_password}</div>
           </div>
               
-          <input type="submit" value="Submit" class="btn btn-success" />
+          <input type="submit" value="Submit" className="btn btn-success" />
+          <input type="return" value="return" className="btn btn-success" />
         </form>
       </div>
     );
