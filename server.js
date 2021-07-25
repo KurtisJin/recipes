@@ -1,11 +1,18 @@
 const express = require("express");
 const path = require("path");
 const mongoose = require("mongoose");
+const session = require('express-session');
+const MongoDBStore = require('connect-mongodb-session')(session);
 
 
 const PORT = process.env.PORT || 3001;
 const app = express();
 const apiRoutes = require("./routes/apiRoutes");
+
+var store = new MongoDBStore({
+  uri: 'mongodb://localhost/pantry2table',
+  collection: 'mySessions'
+});
 
 // Define middleware here
 app.use(express.urlencoded({ extended: true }));
@@ -23,6 +30,19 @@ mongoose.connect(
 
 // Use apiRoutes
 app.use("/api", apiRoutes);
+
+app.use(require('express-session')({
+  secret: 'This is a secret',
+  cookie: {
+    maxAge: 1000 * 60 * 60 * 24 * 7 // 1 week
+  },
+  store: store,
+  // Boilerplate options, see:
+  // * https://www.npmjs.com/package/express-session#resave
+  // * https://www.npmjs.com/package/express-session#saveuninitialized
+  resave: true,
+  saveUninitialized: true
+}));
 
 // Send every request to the React app
 // Define any API routes before this runs

@@ -16,6 +16,9 @@ router.post("/register", async (req, res) => {
       password: hashedPwd,
     });
     res.send(insertResult);
+    req.session = {
+      isLoggedIn: true,
+    }
   } catch (error) {
     console.log(error);
     res.status(500).send("Internal Server error Occured");
@@ -30,11 +33,20 @@ router.post("/login", async (req, res) => {
       const cmp = await bcrypt.compare(req.body.password, loginUser.password);
       if (cmp) {
         //   ..... further code to maintain authentication like jwt or sessions
+        req.session = {
+          isLoggedIn: true,
+        }
         res.send("Auth Successful");
       } else {
+        req.session = {
+          isLoggedIn: false,
+        }
         res.send("Wrong username or password.");
       }
     } else {
+      req.session = {
+        isLoggedIn: false,
+      }
       res.send("Wrong username or password.");
     }
   } catch (error) {
@@ -43,16 +55,16 @@ router.post("/login", async (req, res) => {
   }
 });
 
-router.get('/currentUser', (req, res) => {
-  req.session = {
-    isLoggedIn: true,
-  }
-  if (req.session.isLoggedIn) {
-    res.status(200).send();
-  } else {
-    res.status(401)
-  }
-})
+// router.get('/currentUser', (req, res) => {
+//   req.session = {
+//     isLoggedIn: true,
+//   }
+//   if (req.session.isLoggedIn) {
+//     res.status(200).send();
+//   } else {
+//     res.status(401)
+//   }
+// })
 
 // router.get('/currentUser', (req, res) => {
 //   // don't actually do this this comes from the middleware
