@@ -71,7 +71,7 @@ const useStyles = makeStyles((theme) =>
   function handleInputChange(event) {
     const { name, value } = event.target;
     setFormObject({...formObject, [name]: value})
-    // console.log(formObject)
+    console.log(formObject)
   };
 
 
