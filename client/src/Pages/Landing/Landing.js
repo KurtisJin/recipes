@@ -11,9 +11,11 @@ import Wrapper from '../../component/Wrapper/index'
 import MediaTitle from '../../component/MediaHolder/MediaTitle/MediaTitle'
 import Footer from '../../component/Footer/Footer'
 import AuthContext from '../../context/AuthContext';
+import ScrollReact from '../../component/ScrollUpButton/ScrollReact'
 
 const useStyles = makeStyles((theme) => ({
-    root: {
+    root: { 
+        // display: "flex",
         minHeight: '100vh',
         backgroundImage: `url(${process.env.PUBLIC_URL + "cooking3.jpg"})`,
         backgroundRepeat: "no-repeat",
@@ -34,7 +36,8 @@ function Landing() {
     const classes = useStyles();
     return (
         <div className={classes.root}>
-                <Wrapper>
+                <ScrollReact/>
+                <Wrapper>       
                 <CssBaseline />
                 <Header />
                 <Collapse in={checked} {...(checked ? { timeout: 1000 } : {})} collapsedHeight={80}>
