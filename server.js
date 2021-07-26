@@ -11,6 +11,7 @@ const apiRoutes = require("./routes/apiRoutes");
 
 var store = new MongoDBStore({
   uri: 'mongodb://localhost/pantry2table',
+
   collection: 'mySessions'
 });
 
@@ -28,9 +29,6 @@ mongoose.connect(
   { useUnifiedTopology: true, useNewUrlParser: true, useCreateIndex: true }
 );
 
-// Use apiRoutes
-app.use("/api", apiRoutes);
-
 app.use(require('express-session')({
   secret: 'This is a secret',
   cookie: {
@@ -43,6 +41,9 @@ app.use(require('express-session')({
   resave: true,
   saveUninitialized: true
 }));
+
+// Use apiRoutes
+app.use("/api", apiRoutes);
 
 // Send every request to the React app
 // Define any API routes before this runs

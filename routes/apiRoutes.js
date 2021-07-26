@@ -36,24 +36,13 @@ router.post("/login", async (req, res) => {
       if (cmp) {
         console.log("you did it???")
         //   ..... further code to maintain authentication like jwt or sessions
-        req.session = {
-          isLoggedIn: true,
-        }
-        console.log(req.session.isLoggedIn)
-        res.send(req.session.isLoggedIn);
+        req.session.isLoggedIn = true
+        res.send("Auth Successfu ");
       } else {
-        req.session = {
-          isLoggedIn: false,
-        }
-        req.session.save();
         console.log("fail1?")
         res.send("Wrong username or password.");
       }
     } else {
-      req.session = {
-        isLoggedIn: false,
-      }
-      req.session.
       console.log("fail2?")
       res.send("Wrong username or password.");
     }
@@ -65,16 +54,14 @@ router.post("/login", async (req, res) => {
 
 
 router.get('/logout', (req, res) => {
-  req.session = {
-    isLoggedIn: false
-  }
+  req.session.isLoggedIn = false
 })
 
 router.get('/currentUser', (req, res) => {
-  req.session = {
-    isLoggedIn: true,
-  }
-  console.log(req.body)
+  //  req.session = {
+  //    isLoggedIn: true,
+  //  }
+  // console.log(req.session)
   if (req.session.isLoggedIn) {
     res.status(200).send();
   } else {
@@ -82,18 +69,5 @@ router.get('/currentUser', (req, res) => {
 
   }
 })
-
-// router.get('/currentUser', (req, res) => {
-//   // don't actually do this this comes from the middleware
-//   req.session = {
-//     isLoggedIn: true,
-//   }
-// ​
-//   if (req.session.isLoggedIn) {
-//     res.status(200).send();
-//   } else {
-//     res.status(401).send();
-//   }
-// });
 
 module.exports = router;

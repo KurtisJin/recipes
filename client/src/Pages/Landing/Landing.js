@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import React, {useContext, useEffect, useState } from 'react';
 import { makeStyles, createStyles } from '@material-ui/core/styles';
 import { CssBaseline } from '@material-ui/core/';
 import StationMedia from '../../component/StationMedia/StationMedia'
@@ -10,6 +10,7 @@ import Wrapper from '../../component/Wrapper/index'
 import RandomCardTitle from '../../component/RandomTwoReceipes/RandomThreeTitle/RandomThreeTitle'
 import MediaTitle from '../../component/MediaHolder/MediaTitle/MediaTitle'
 import Footer from '../../component/Footer/Footer'
+import AuthContext from '../../context/AuthContext';
 
 const useStyles = makeStyles((theme) => ({
     root: {
@@ -25,8 +26,10 @@ const useStyles = makeStyles((theme) => ({
 
 function Landing() {
     const [checked, setChecked] = useState(false)
+    const {isLoggedIn, user, setIsLoggedIn, setUser } = useContext(AuthContext);
     useEffect(() => {
         setChecked(true);
+        console.log(isLoggedIn)
     },[])
     const classes = useStyles();
     return (

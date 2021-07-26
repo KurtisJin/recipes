@@ -56,13 +56,14 @@ const useStyles = makeStyles((theme) =>
         username: formObject.username,
         password: formObject.password
       })
-        .then(res =>
-           console.log(res),
+        .then((res) =>{
+          console.log(res)
           setIsLoggedIn(true),
-          console.log(isLoggedIn),
-  history.replace('/profile')
-           )
-        .catch(err => console.log('aaaaaaaaaaaa'));
+          // console.log(isLoggedIn),
+          console.log(isLoggedIn)
+          history.replace('/profile')
+        })
+        .catch((err) =>{ console.log(err)});
   };
 }
 
