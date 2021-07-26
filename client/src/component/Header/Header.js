@@ -51,7 +51,7 @@ const useStyles = makeStyles((theme) => ({
     },
     
     button: {
-      marginLeft: "280%",
+      marginLeft: "260%",
       fontSize: "30px",
     },
 
