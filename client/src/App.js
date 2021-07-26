@@ -22,11 +22,11 @@ import { useContext } from 'react';
 
 const AuthenticatedRoute = ({ children, component: Component, ...props }) => {
     const [isLoading, setIsLoading] = useState(true);
-    const {isLoggedIn, setIsLoggedIn, setUser } = useContext(AuthContext);
+    const { setIsLoggedIn, setUser } = useContext(AuthContext);
     const history = useHistory();
     useEffect(() => {
       // your api returning back req.session
-      axios.get('/api/currentUser', {isLoggedIn}).then((user) => {
+      axios.get('/api/currentUser').then((user) => {
         console.log('yo!')
         setIsLoggedIn(true);
         setUser(user);
@@ -43,11 +43,12 @@ const AuthenticatedRoute = ({ children, component: Component, ...props }) => {
       </Route>
   }
 
+
 function App() {
     const [isLoggedIn, setIsLoggedIn] = useState(false)
     const [user, setUser] = useState()
     return (
-        <AuthContext.Provider value={{isLoggedIn, setIsLoggedIn,user, setUser}}>
+        <AuthContext.Provider value={{isLoggedIn, setIsLoggedIn, user, setUser}}>
         <div>
             <Router>
             <Switch>
@@ -59,7 +60,7 @@ function App() {
                 </Route>
                 <Route exact path="/signup">
                     <SignupTwo />
-                </Route>
+                </Route >
                 <AuthenticatedRoute exact path="/profile" component= {ProfilePage}/>
             </Switch>
             </Router>
