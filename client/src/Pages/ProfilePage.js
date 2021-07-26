@@ -97,24 +97,28 @@ export default function ProfilePage() {
         event.preventDefault();
         const userQuery = formObject.foodName
         API.getRecipe(userQuery)
-            .then(res =>
-                UrlRecipes(res.data),
-                // console.log(res.data)
+            .then((res) => {
+                UrlRecipes(res.data)
+             
+               console.log(res.data)
+            }
             )
             .catch(err => console.log(err))
+            
     }
 
     function UrlRecipes(foodData) {
         const imageData = foodData
         setRecipes(imageData)
-        // foodData.map((urlData) => (
-        //     API.getRecipeURL(urlData.id)
-        //         .then(res =>
-        //             setRecipeURLs(res.data),
-        //             //  console.log(res.data)
-        //         )
-        //         .catch(err => console.log(err))
-        // ))
+        foodData.map((urlData) => (
+            API.getRecipeURL(urlData.id)
+                .then((res) => {
+                    setRecipeURLs(res.data)
+                     console.log(res.data)
+                    }
+                )
+                .catch(err => console.log(err))
+        ))
     }
 
     function handleInputChange(event) {
