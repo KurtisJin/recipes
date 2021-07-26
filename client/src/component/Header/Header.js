@@ -18,15 +18,17 @@ import Box from '@material-ui/core/Box';
 import Link from 'react'
 import API from '../../utils/API'
 import AuthContext from '../../context/AuthContext';
+import zIndex from "@material-ui/core/styles/zIndex";
 
 const useStyles = makeStyles((theme) => ({
     root: {
       flexGrow: 1,
       width: '80%',
-      maxWidth: '150%',
-      // marginLeft: '10%',
-      // backgroundColor: 'red',
+      maxWidth: '100%',
+      marginLeft: '10%',
+      backgroundColor: 'red',
       marginBottom: '150px',
+      // height: "-10px",
     },
     appbar: {
         background: 'none',
@@ -39,9 +41,19 @@ const useStyles = makeStyles((theme) => ({
       flexGrow: 1,
       marginRight: "100%",
       fontSize: "40px",
-    
+      // marginBottom: "200px"
       
     },
+
+    // navbar: {
+    //   position: "fixed",
+    //   width: "100%",
+    //   zIndex: 999,
+    //   padding: "30px 0",
+    //   font: 'Ubuntu', sans-serif,
+    //   transition: "all 0.3s ease",
+    //   marginBottom: "100%",
+    //  },
 
     span: {
       color: "red",
@@ -51,8 +63,9 @@ const useStyles = makeStyles((theme) => ({
     },
     
     button: {
-      marginLeft: "280%",
+      marginLeft: "1500%",
       fontSize: "30px",
+      // marginBottom: "200px"
     },
 
     menuList: {
@@ -107,8 +120,8 @@ const useStyles = makeStyles((theme) => ({
       }, [open]);
   
     return (
-      <div className={classes.root} id="header">
-        <Box px={{ xs: 3, sm: 10 }} py={{ xs: 5, sm: 10 }} bgcolor="none" color="white">
+      <div className={classes.root} className="navbar" id="header">
+        <Box px={{ xs: 3, sm: 10 }} py={{ xs: 5, sm: 10 }} height="20px" bgcolor="none" color="white">
         <Container maxWidth='lg'>
         <Grid container spacing={5}>
         <Grid item xs={12} sm={4}>
@@ -151,6 +164,7 @@ const useStyles = makeStyles((theme) => ({
         </Container>
         </Box>
       </div>
+      
     );
     } 
 export default Header;  
