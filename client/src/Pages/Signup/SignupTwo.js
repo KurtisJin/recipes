@@ -1,6 +1,8 @@
 import React from 'react';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import './SignupTwo.css'
+import API from '../../utils/API'
+import { Link } from 'react-router-dom';
 
 
 class Form extends React.Component {
@@ -32,13 +34,18 @@ class Form extends React.Component {
         console.log(this.state);
   
         let input = {};
-        input["name"] = "";
-        input["email"] = "";
-        input["password"] = "";
-        input["confirm_password"] = "";
         this.setState({input:input});
-  
-        alert('Demo Form is submited');
+        input["username"] = input.username;
+        input["password"] =input.password;
+        input["confirm_password"] =input.password;
+        console.log(this.state.input.username)
+        console.log(this.state.input.password)
+        API.postUser({
+          username: this.state.input.username,
+          password: this.state.input.password
+        })
+        // alert('Welcome to our table ' +this.state.input.username+'!');
+
     }
   }
   
@@ -47,23 +54,9 @@ class Form extends React.Component {
       let errors = {};
       let isValid = true;
   
-      if (!input["name"]) {
+      if (!input["username"]) {
         isValid = false;
-        errors["name"] = "Please enter your name.";
-      }
-  
-      if (!input["email"]) {
-        isValid = false;
-        errors["email"] = "Please enter your email Address.";
-      }
-  
-      if (typeof input["email"] !== "undefined") {
-          
-        var pattern = new RegExp(/^(("[\w-\s]+")|([\w-]+(?:\.[\w-]+)*)|("[\w-\s]+")([\w-]+(?:\.[\w-]+)*))(@((?:[\w-]+\.)*\w[\w-]{0,66})\.([a-z]{2,6}(?:\.[a-z]{2})?)$)|(@\[?((25[0-5]\.|2[0-4][0-9]\.|1[0-9]{2}\.|[0-9]{1,2}\.))((25[0-5]|2[0-4][0-9]|1[0-9]{2}|[0-9]{1,2})\.){2}(25[0-5]|2[0-4][0-9]|1[0-9]{2}|[0-9]{1,2})\]?$)/i);
-        if (!pattern.test(input["email"])) {
-          isValid = false;
-          errors["email"] = "Please enter valid email address.";
-        }
+        errors["name"] = "Please enter your username.";
       }
   
       if (!input["password"]) {
@@ -98,33 +91,19 @@ class Form extends React.Component {
         <form onSubmit={this.handleSubmit}>
   
           <div class="form-group">
-            <label for="name">Name:</label>
+            <label for="name">Username:</label>
             <input 
               type="text" 
-              name="name" 
+              name="username" 
               value={this.state.input.name}
               onChange={this.handleChange}
               class="form-control" 
-              placeholder="Enter name" 
-              id="name" />
+              placeholder="Enter Username" 
+              id="username" />
   
               <div className="text-danger">{this.state.errors.name}</div>
           </div>
   
-          <div class="form-group">
-            <label for="email">Email Address:</label>
-            <input 
-              type="text" 
-              name="email" 
-              value={this.state.input.email}
-              onChange={this.handleChange}
-              class="form-control" 
-              placeholder="Enter email" 
-              id="email" />
-  
-              <div className="text-danger">{this.state.errors.email}</div>
-          </div>
-   
           <div class="form-group">
             <label for="password">Password:</label>
             <input 
@@ -154,7 +133,7 @@ class Form extends React.Component {
           </div>
               
           <input type="submit" value="Submit" className="btn btn-success" />
-          <input type="return" value="return" className="btn btn-success" />
+          <Link to="/" className="btn btn-success">Return</Link>
         </form>
       </div>
     );
