@@ -58,7 +58,8 @@ const useStyles = makeStyles((theme) => ({
     display: 'flex',
     alignItems: 'center',
     justifyContent: 'center',
-    color: theme.palette.common.white,
+    color: theme.palette.common.gray,
+  
   },
   imageSrc: {
     position: 'absolute',
