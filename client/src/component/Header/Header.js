@@ -27,7 +27,7 @@ const useStyles = makeStyles((theme) => ({
       maxWidth: '100%',
       marginLeft: '10%',
       backgroundColor: 'red',
-      marginBottom: '150px',
+      // marginBottom: '150px',
       // height: "-10px",
     },
     appbar: {

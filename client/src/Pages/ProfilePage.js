@@ -134,6 +134,7 @@ export default function ProfilePage() {
     return (
 
         <div className={classes.root}>
+            
             <Header />
             <h2 className={classes.searchHeader}><Typing /></h2>
             <form className={classes.form} onSubmit={SearchRecipes} >
