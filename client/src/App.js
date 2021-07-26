@@ -41,8 +41,8 @@ const AuthenticatedRoute = ({ children, component: Component, ...props }) => {
     useEffect(() => {
       // your api returning back req.session
       axios.get('/api/currentUser').then((user) => {
+        setIsLoggedIn(true)
         console.log('yo!')
-        setIsLoggedIn(true);
         setUser(user);
         setIsLoading(false);
       })
