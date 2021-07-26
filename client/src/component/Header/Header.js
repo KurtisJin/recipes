@@ -22,8 +22,9 @@ import AuthContext from '../../context/AuthContext';
 const useStyles = makeStyles((theme) => ({
     root: {
       flexGrow: 1,
-      width: '90%',
-      margin: '0 auto',
+      width: '80%',
+      maxWidth: '150%',
+      // marginLeft: '10%',
       // backgroundColor: 'red',
     },
     appbar: {
@@ -35,10 +36,22 @@ const useStyles = makeStyles((theme) => ({
       },
     title: {
       flexGrow: 1,
+      marginRight: "100%",
+      fontSize: "30px",
+    
+      
+    },
+
+    span: {
+      color: "red",
+      '&:hover': {
+        color: "green",
+      },
     },
     
     button: {
-      marginLeft: "500px",
+      marginLeft: "280%",
+      fontSize: "20px",
     }
 
     }),
@@ -98,7 +111,7 @@ const useStyles = makeStyles((theme) => ({
           <Toolbar>
            
             <Typography variant="h6" className={classes.title}>
-              Pantry2Table
+              Pantry<span className={classes.span}>2</span>Table
             </Typography>
             
             <Button ref={anchorRef} className={classes.button}

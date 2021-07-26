@@ -6,7 +6,7 @@ import RandomCardTwo from '../RandomThreeCard/RandomCardTwo'
 import RandomCardThree from '../RandomThreeCard/RandomCardThree'
 import { Collapse } from '@material-ui/core';
 import "./style.css";
-import RandomThreeTitle from './RandomThreeTitle/RandomThreeTitle'
+// import RandomThreeTitle from './RandomThreeTitle/RandomThreeTitle'
 import Divider from '@material-ui/core/Divider';
 const useStyles = makeStyles((theme) => ({
 
@@ -17,6 +17,16 @@ const useStyles = makeStyles((theme) => ({
         alignItems: 'center',
         
     },
+    randomThreeTitle: {
+      fontSize: '25px',
+      color: 'white',
+      marginBottom: '50px',
+      marginLeft: '70px'
+  },
+
+  part2: {
+      color: 'red',
+  },
 
     
     divider: {
@@ -35,6 +45,7 @@ export default function SearchResults() {
   return (
     
     <div className={classes.searchResults}>
+      <h1 className={classes.randomThreeTitle}>Need Ideas? Click on <span className={classes.part2}>FREE</span> Receipes Below!</h1>
       <Divider className={classes.divider} />
       <Collapse in={checked} {...(checked ? { timeout: 1000 } : {})} collapsedHeight={80}>
        <RandomCardOne />

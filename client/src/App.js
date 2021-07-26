@@ -18,7 +18,19 @@ import ProfilePage from './Pages/ProfilePage';
 import axios from 'axios';
 import AuthContext from './context/AuthContext';
 import { useContext } from 'react';
- 
+import { flexbox } from '@material-ui/system';
+import wrapper from './component/Wrapper/index'
+
+// const useStyles = makeStyles((theme) => ({
+    
+//     root: {
+      
+//         maxWidth: "100%",
+        
+//     },
+
+// })
+// );
 
 const AuthenticatedRoute = ({ children, component: Component, ...props }) => {
     const [isLoading, setIsLoading] = useState(true);
@@ -47,10 +59,12 @@ const AuthenticatedRoute = ({ children, component: Component, ...props }) => {
 function App() {
     const [isLoggedIn, setIsLoggedIn] = useState(false)
     const [user, setUser] = useState()
+    // const classes = useStyles();
     return (
         <AuthContext.Provider value={{isLoggedIn, setIsLoggedIn, user, setUser}}>
         <div>
             <Router>
+            <Wrapper>
             <Switch>
                 <Route exact path={["/", "/landing"]}>
                     <Landing />
@@ -63,6 +77,7 @@ function App() {
                 </Route >
                 <AuthenticatedRoute exact path="/profile" component= {ProfilePage}/>
             </Switch>
+            </Wrapper>
             </Router>
         </div>
         </AuthContext.Provider>

@@ -1,8 +1,27 @@
 import React from "react";
 import "./style.css";
+import { makeStyles} from "@material-ui/core/styles"
 
-function Wrapper(props) {
-  return <main className="wrapper">{props.children}</main>;
+
+const useStyles = makeStyles({
+  page: {
+    width: '100%',
+  },
+})
+
+function Wrapper({children}) {
+  const classes = useStyles();
+  return (
+
+    <div>
+        <div className={classes.page}>
+          {children}
+        </div>
+
+    </div>
+
+  ) 
+
 }
 
 
