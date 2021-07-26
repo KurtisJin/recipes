@@ -26,6 +26,7 @@ const useStyles = makeStyles((theme) => ({
       maxWidth: '150%',
       // marginLeft: '10%',
       // backgroundColor: 'red',
+      marginBottom: '150px',
     },
     appbar: {
         background: 'none',
@@ -37,7 +38,7 @@ const useStyles = makeStyles((theme) => ({
     title: {
       flexGrow: 1,
       marginRight: "100%",
-      fontSize: "30px",
+      fontSize: "40px",
     
       
     },
@@ -51,8 +52,12 @@ const useStyles = makeStyles((theme) => ({
     
     button: {
       marginLeft: "280%",
-      fontSize: "20px",
-    }
+      fontSize: "30px",
+    },
+
+    menuList: {
+      fontSize: "25px",
+    },
 
     }),
   );
@@ -127,10 +132,10 @@ const useStyles = makeStyles((theme) => ({
               <Paper>
                 <ClickAwayListener onClickAway={handleClose}>
                   <MenuList autoFocusItem={open} id="menu-list-grow" onKeyDown={handleListKeyDown}>
-                    <MenuItem onClick={handleClose} component='a' href='/profile'>Profile</MenuItem>
-                   {!isLoggedIn ? <MenuItem onClick={handleClose}component='a' href='/login'>Login</MenuItem> :
-                   <MenuItem onClick={handleCloseLogOut}component='a' href='/'>Logout</MenuItem>}
-                    <MenuItem onClick={handleClose}component='a' href='/signup'>Signup</MenuItem>
+                    <MenuItem className={classes.menuList} onClick={handleClose} component='a' href='/profile'>Profile</MenuItem>
+                   {!isLoggedIn ? <MenuItem className={classes.menuList} onClick={handleClose}component='a' href='/login'>Login</MenuItem> :
+                   <MenuItem className={classes.menuList} onClick={handleCloseLogOut}component='a' href='/'>Logout</MenuItem>}
+                    <MenuItem className={classes.menuList} onClick={handleClose}component='a' href='/signup'>Signup</MenuItem>
                     {/* //TODO: need to figure out how to do login to show when user is not logged in and logout only shows
                     //when only logged in.  */}
                   </MenuList>
