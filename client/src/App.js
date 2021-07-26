@@ -11,7 +11,7 @@ import Wrapper from './component/Wrapper/index'
 import RandomCardTitle from './component/RandomTwoReceipes/RandomThreeTitle/RandomThreeTitle'
 import MediaTitle from './component/MediaHolder/MediaTitle/MediaTitle'
 import Footer from './component/Footer/Footer'
-import Signup from './Pages/Signup/Signup'
+import Login from './Pages/Signup/Login'
 import SignupTwo from './Pages/Signup/SignupTwo'
 import Landing from './Pages/Landing/Landing';
 import ProfilePage from './Pages/ProfilePage';
@@ -22,11 +22,11 @@ import { useContext } from 'react';
 
 const AuthenticatedRoute = ({ children, component: Component, ...props }) => {
     const [isLoading, setIsLoading] = useState(true);
-    const { setIsLoggedIn, setUser } = useContext(AuthContext);
+    const {isLoggedIn, setIsLoggedIn, setUser } = useContext(AuthContext);
     const history = useHistory();
     useEffect(() => {
       // your api returning back req.session
-      axios.get('/api/currentUser').then((user) => {
+      axios.get('/api/currentUser', {isLoggedIn}).then((user) => {
         console.log('yo!')
         setIsLoggedIn(true);
         setUser(user);
@@ -55,7 +55,7 @@ function App() {
                     <Landing />
                 </Route>
                 <Route exact path="/login">
-                    <Signup />
+                    <Login />
                 </Route>
                 <Route exact path="/signup">
                     <SignupTwo />

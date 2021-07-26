@@ -20,42 +20,42 @@ const useStyles = makeStyles((theme) => ({
     },
 
     instructions: {
-     
+
         color: "white",
         textShadow: "white",
         fontSize: "15px",
         marginLeft: "18%",
         marginTop: "10px",
-        border:"solid 2px",
+        border: "solid 2px",
         borderColor: "crimson",
         '&:hover': {
             borderColor: "white",
-          },
+        },
         width: "50%",
         textAlign: "center",
         borderRadius: "10px"
     },
 
-    
-    
+
+
     searchBar: {
-        
+
         position: 'relative',
         borderRadius: theme.shape.borderRadius,
         backgroundColor: alpha(theme.palette.common.white, 0.15),
         '&:hover': {
-          backgroundColor: alpha(theme.palette.common.white, 0.25),
+            backgroundColor: alpha(theme.palette.common.white, 0.25),
         },
         marginLeft: 0,
         width: '50%',
         [theme.breakpoints.up('sm')]: {
-          marginLeft: theme.spacing(1),
-        //   width: 'auto',
-        marginLeft: "300px",
-        height: "20px"
-       
+            marginLeft: theme.spacing(1),
+            //   width: 'auto',
+            marginLeft: "300px",
+            height: "20px"
+
         },
-      },
+    },
 
     searchHeader: {
         alignItems: "center",
@@ -74,10 +74,10 @@ const useStyles = makeStyles((theme) => ({
         borderRadius: theme.shape.borderRadius,
         backgroundColor: alpha(theme.palette.common.white, 0.15),
         '&:hover': {
-          backgroundColor: alpha(theme.palette.common.white, 0.25),
+            backgroundColor: alpha(theme.palette.common.white, 0.25),
         },
     }
-   
+
 
 }));
 
@@ -87,6 +87,7 @@ export default function ProfilePage() {
     }, [])
 
     const [recipes, setRecipes] = useState([]);
+    const [recipeURLs, setRecipeURLs] = useState([]);
     const [formObject, setFormObject] = useState({
         title: " ",
         foodName: "peaches",
@@ -95,14 +96,27 @@ export default function ProfilePage() {
     function SearchRecipes(event) {
         event.preventDefault();
         const userQuery = formObject.foodName
-         API.getRecipe(userQuery)
-             .then(res =>
-                 setRecipes(res.data),
-                // console.log(userQuery)
-             )
-             .catch(err => console.log(err))
+        API.getRecipe(userQuery)
+            .then(res =>
+                UrlRecipes(res.data),
+                // console.log(res.data)
+            )
+            .catch(err => console.log(err))
     }
-    
+
+    function UrlRecipes(foodData) {
+        const imageData = foodData
+        setRecipes(imageData)
+        // foodData.map((urlData) => (
+        //     API.getRecipeURL(urlData.id)
+        //         .then(res =>
+        //             setRecipeURLs(res.data),
+        //             //  console.log(res.data)
+        //         )
+        //         .catch(err => console.log(err))
+        // ))
+    }
+
     function handleInputChange(event) {
         const newFood = event.target.value;
         setFormObject({ ...formObject, foodName: newFood })
@@ -116,10 +130,10 @@ export default function ProfilePage() {
 
         <div className={classes.root}>
             <Header />
-            <h2 className={classes.searchHeader}><Typing/></h2>
+            <h2 className={classes.searchHeader}><Typing /></h2>
             <form className={classes.form} onSubmit={SearchRecipes} >
-            <h3 className={classes.instructions}><span className={classes.span}>Please type in the ingredient to search for you're receipe you desire. <br></br>For multiple ingredients, please seperate by a comma and a + sign. <br></br>
-                 i.e chicken, +lettuce</span></h3>
+                <h3 className={classes.instructions}><span className={classes.span}>Please type in the ingredient to search for you're receipe you desire. <br></br>For multiple ingredients, please seperate by a comma and a + sign. <br></br>
+                    i.e chicken, +lettuce</span></h3>
 
                 <input
                     className={classes.searchBar}
@@ -127,20 +141,19 @@ export default function ProfilePage() {
                     onChange={handleInputChange}
                     placeholder="Type in your search"
                 />
-                
+
                 <input className={classes.button} type="submit"
-                value="search"/>
-                 {/* <DropDown/> */}
-                 
+                    value="search" />
+
             </form>
-                <div className={classes.secondary}>
-                    <ButtonBaseContainer images={recipes} />
-                </div>
-                <Footer />
+            <div className={classes.secondary}>
+                <ButtonBaseContainer images={recipes}/>
+            </div>
+            <Footer />
         </div>
 
 
-            )
+    )
 }
 
 

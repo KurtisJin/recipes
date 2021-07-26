@@ -16,6 +16,7 @@ import Container from '@material-ui/core/Container';
 import Grid from '@material-ui/core/Grid';
 import Box from '@material-ui/core/Box';
 import Link from 'react'
+import API from '../../utils/API'
 
 const useStyles = makeStyles((theme) => ({
     root: {
@@ -57,6 +58,15 @@ const useStyles = makeStyles((theme) => ({
         }
     
         setOpen(false);
+      };
+
+      const handleCloseLogOut = (event) => {
+        if (anchorRef.current && anchorRef.current.contains(event.target)) {
+          return;
+        }
+    
+        setOpen(false);
+        API.logUserOut();
       };
 
       function handleListKeyDown(event) {
@@ -102,10 +112,10 @@ const useStyles = makeStyles((theme) => ({
               <Paper>
                 <ClickAwayListener onClickAway={handleClose}>
                   <MenuList autoFocusItem={open} id="menu-list-grow" onKeyDown={handleListKeyDown}>
-                    <MenuItem onClick={handleClose}>Profile</MenuItem>
-                    <MenuItem onClick={handleClose}>My account</MenuItem>
-                    <MenuItem onClick={handleClose}>Login</MenuItem>
-                    <MenuItem onClick={handleClose}>Logout</MenuItem>
+                    <MenuItem onClick={handleClose} component='a' href='/profile'>Profile</MenuItem>
+                    <MenuItem onClick={handleClose}component='a' href='/login'>Login</MenuItem>
+                    <MenuItem onClick={handleClose}component='a' href='/signup'>Signup</MenuItem>
+                    <MenuItem onClick={handleCloseLogOut}component='a' href='/'>Logout</MenuItem>
                     {/* //TODO: need to figure out how to do login to show when user is not logged in and logout only shows
                     //when only logged in.  */}
                   </MenuList>

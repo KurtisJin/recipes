@@ -109,6 +109,7 @@ export default function ButtonBaseContainer(props) {
           style={{
             flex: 1,
           }}
+          onclick={console.log('yo')}
         >
           <span
             className={classes.imageSrc}
@@ -116,7 +117,7 @@ export default function ButtonBaseContainer(props) {
               backgroundImage: `url(${image.image})`,
             }}
           />
-          <span className={classes.imageBackdrop} />
+          {/* <span/> */}
           <span className={classes.imageButton}>
             <Typography
               component="span"
@@ -125,7 +126,8 @@ export default function ButtonBaseContainer(props) {
               className={classes.imageTitle}
             >
               {image.title}
-              <span className={classes.imageMarked} />
+              <span className={classes.imageMarked} 
+              />
             </Typography>
           </span>
         </ButtonBase>
