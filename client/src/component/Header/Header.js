@@ -132,10 +132,10 @@ const useStyles = makeStyles((theme) => ({
               <Paper>
                 <ClickAwayListener onClickAway={handleClose}>
                   <MenuList autoFocusItem={open} id="menu-list-grow" onKeyDown={handleListKeyDown}>
-                    <MenuItem className={classes.menuList} onClick={handleClose} component='a' href='/profile'>Profile</MenuItem>
+                  {isLoggedIn ? <MenuItem className={classes.menuList} onClick={handleClose} component='a' href='/profile'>Profile</MenuItem>:<div></div>}
                    {!isLoggedIn ? <MenuItem className={classes.menuList} onClick={handleClose}component='a' href='/login'>Login</MenuItem> :
                    <MenuItem className={classes.menuList} onClick={handleCloseLogOut}component='a' href='/'>Logout</MenuItem>}
-                    <MenuItem className={classes.menuList} onClick={handleClose}component='a' href='/signup'>Signup</MenuItem>
+                     {!isLoggedIn ? <MenuItem className={classes.menuList} onClick={handleClose}component='a' href='/signup'>Signup</MenuItem>:<div></div>}
                     {/* //TODO: need to figure out how to do login to show when user is not logged in and logout only shows
                     //when only logged in.  */}
                   </MenuList>
