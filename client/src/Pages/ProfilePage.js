@@ -8,11 +8,12 @@ import Footer from '../component/Footer/Footer';
 import Typing from '../Pages/Signup/ProfileTyping/Typing'
 import words from '../Pages/Signup/ProfileTyping/words';
 import { alpha } from '@material-ui/core/styles';
+import ScrollReact from '../component/ScrollUpButton/ScrollReact'
 // import DropDown from '../component/DropDowns/DropDown'
 
 const useStyles = makeStyles((theme) => ({
     root: {
-
+        
         minHeight: '100vh',
         backgroundImage: `url(${process.env.PUBLIC_URL + "cooking4.jpg"})`,
         backgroundRepeat: "no-repeat",
@@ -61,7 +62,8 @@ const useStyles = makeStyles((theme) => ({
         alignItems: "center",
         marginLeft: "0%",
         strings: words,
-        marginBottom: "15%",
+        // marginBottom: "15%",
+        marginTop: "-12%"
     },
 
     form: {
@@ -76,6 +78,10 @@ const useStyles = makeStyles((theme) => ({
         '&:hover': {
             backgroundColor: alpha(theme.palette.common.white, 0.25),
         },
+    },
+
+    secondary: {
+        marginTop: "90px",
     }
 
 
@@ -133,8 +139,10 @@ export default function ProfilePage() {
     return (
 
         <div className={classes.root}>
-            
-            <Header />
+            <ScrollReact/>
+            <div className="navbar">
+                <Header />
+                </div>
             <h2 className={classes.searchHeader}><Typing /></h2>
             <form className={classes.form} onSubmit={SearchRecipes} >
                 <h3 className={classes.instructions}><span className={classes.span}>Please type in the ingredient to search for you're receipe you desire. <br></br>For multiple ingredients, please seperate by a comma and a + sign. <br></br>

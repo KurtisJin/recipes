@@ -26,7 +26,7 @@ const useStyles = makeStyles((theme) => ({
       width: '80%',
       maxWidth: '100%',
       marginLeft: '10%',
-      backgroundColor: 'red',
+      // backgroundColor: 'red',
       // marginBottom: '150px',
       // height: "-10px",
     },
@@ -38,10 +38,13 @@ const useStyles = makeStyles((theme) => ({
         marginRight: theme.spacing(2),
       },
     title: {
+      justifyContent:"space-between",
       flexGrow: 1,
-      marginRight: "100%",
+      marginRight: "165%",
+      marginLeft: "-40%",
       fontSize: "40px",
       // marginBottom: "200px"
+
       
     },
 
@@ -56,14 +59,16 @@ const useStyles = makeStyles((theme) => ({
     //  },
 
     span: {
-      color: "red",
+      color: "blue",
       '&:hover': {
         color: "green",
       },
     },
     
     button: {
-      marginLeft: "1500%",
+      justifyContent:"space-between",
+      marginLeft: "120%",
+      // marginRight: "150%",
       fontSize: "30px",
       // marginBottom: "200px"
     },
@@ -120,7 +125,7 @@ const useStyles = makeStyles((theme) => ({
       }, [open]);
   
     return (
-      <div className={classes.root} className="navbar" id="header">
+      <div className={classes.root}  id="header">
         <Box px={{ xs: 3, sm: 10 }} py={{ xs: 5, sm: 10 }} height="20px" bgcolor="none" color="white">
         <Container maxWidth='lg'>
         <Grid container spacing={5}>

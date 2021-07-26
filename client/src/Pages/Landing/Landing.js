@@ -23,6 +23,11 @@ const useStyles = makeStyles((theme) => ({
        
         
     },
+
+    typing: {
+        marginTop: "350px",
+        
+    },
     
 }));
 
@@ -39,9 +44,13 @@ function Landing() {
                 <ScrollReact/>
                 <Wrapper>       
                 <CssBaseline />
+                <div className="navbar">
                 <Header />
+                </div>
                 <Collapse in={checked} {...(checked ? { timeout: 1000 } : {})} collapsedHeight={80}>
+                    <div className={classes.typing}>
                     <Typing />
+                    </div>
                 </Collapse>
                 <Collapse in={checked} {...(checked ? { timeout: 1000 } : {})} collapsedHeight={80}>
                     <StationMedia />
