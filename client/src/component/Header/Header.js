@@ -94,12 +94,12 @@ const useStyles = makeStyles((theme) => ({
       };
 
       const handleCloseLogOut = (event) => {
-        API.logUserOut();
         if (anchorRef.current && anchorRef.current.contains(event.target)) {
           return;
         }
     
         setOpen(false);
+        API.logUserOut();
       };
 
       function handleListKeyDown(event) {

@@ -14,8 +14,10 @@ router.post("/register", async (req, res) => {
       username: req.body.username,
       password: hashedPwd,
     });
-    req.session.isLoggedIn = true
     res.send(insertResult);
+    req.session = {
+      isLoggedIn: true,
+    }
   } catch (error) {
     console.log(error);
     res.status(500).send("Internal Server error Occured");
@@ -38,12 +40,10 @@ router.post("/login", async (req, res) => {
         res.send("Auth Successfu ");
       } else {
         console.log("fail1?")
-        req.session.isLoggedIn = false
         res.send("Wrong username or password.");
       }
     } else {
       console.log("fail2?")
-      req.session.isLoggedIn = false
       res.send("Wrong username or password.");
     }
   } catch (error) {
@@ -55,17 +55,14 @@ router.post("/login", async (req, res) => {
 
 router.get('/logout', (req, res) => {
   req.session.isLoggedIn = false
-  // console.log(req.session.isLoggedIn)
-  if (req.session.isLoggedIn == false){
-  res.status(200).send('I worked');
-} else {
-  res.status(401).send('oh no');
-}
 })
 
 router.get('/currentUser', (req, res) => {
-  // console.log(req.session.isLoggedIn)
-  if (req.session.isLoggedIn == true) {
+  //  req.session = {
+  //    isLoggedIn: true,
+  //  }
+  // console.log(req.session)
+  if (req.session.isLoggedIn) {
     res.status(200).send();
   } else {
     res.status(401).send();
