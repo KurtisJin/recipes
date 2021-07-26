@@ -9,6 +9,7 @@ const useStyles = makeStyles((theme) => ({
         color: 'black',
         marginTop: '-50px',
         marginLeft: '70px',
+        marginRight: '30px',
     
     },
     part2: {

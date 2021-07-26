@@ -7,7 +7,7 @@ import Typing from "../../component/Typing/Typing"
 import { Collapse } from "@material-ui/core/"
 import RandomFourReceipes from '../../component/RandomTwoReceipes/RandomTwoReceipes'
 import Wrapper from '../../component/Wrapper/index'
-import RandomCardTitle from '../../component/RandomTwoReceipes/RandomThreeTitle/RandomThreeTitle'
+// import RandomCardTitle from '../../component/RandomTwoReceipes/RandomThreeTitle/RandomThreeTitle'
 import MediaTitle from '../../component/MediaHolder/MediaTitle/MediaTitle'
 import Footer from '../../component/Footer/Footer'
 
@@ -43,7 +43,7 @@ function Landing() {
                 <br></br>
                 <br></br>
                 <br></br>
-                <RandomCardTitle />
+                {/* <RandomCardTitle /> */}
                 <RandomFourReceipes />
                 </Wrapper>
                 <Footer />

@@ -11,11 +11,16 @@ import { makeStyles } from '@material-ui/core/styles';
 const useStyles = makeStyles((theme) => ({
 
   media: {
-      minHeight: '100vh',
+      minHeight: '50vh',
       display: 'flex',
-      justifyContent: 'center',
+      // justifyContent: 'center',
       alignItems: 'center',
       backgroundColor: "white",
+      
+      width: "100%",
+    
+      
+      
       // opacity: '.9',
 
      
