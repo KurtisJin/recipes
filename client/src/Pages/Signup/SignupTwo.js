@@ -38,13 +38,11 @@ class Form extends React.Component {
         input["username"] = input.username;
         input["password"] =input.password;
         input["confirm_password"] =input.password;
-        console.log(this.state.input.username)
-        console.log(this.state.input.password)
         API.postUser({
           username: this.state.input.username,
           password: this.state.input.password
         })
-        // alert('Welcome to our table ' +this.state.input.username+'!');
+        alert('Welcome to our table, ' +this.state.input.username+'! Click return to go back to the main page and login, or signup with more users!');
 
     }
   }

@@ -100,7 +100,7 @@ export default function ProfilePage() {
             .then((res) => {
                 UrlRecipes(res.data)
              
-               console.log(res.data)
+            //    console.log(res.data)
             }
             )
             .catch(err => console.log(err))
@@ -111,20 +111,21 @@ export default function ProfilePage() {
         const imageData = foodData
         setRecipes(imageData)
         foodData.map((urlData) => (
-            API.getRecipeURL(urlData.id)
-                .then((res) => {
-                    setRecipeURLs(res.data)
-                     console.log(res.data)
-                    }
-                )
-                .catch(err => console.log(err))
+            console.log(urlData.title)
+            // API.getRecipeURL(urlData.id)
+            //     .then((res) => {
+            //         setRecipeURLs(res.data)
+            //          console.log(res.data)
+            //         }
+            //     )
+            //     .catch(err => console.log(err))
         ))
     }
 
     function handleInputChange(event) {
         const newFood = event.target.value;
         setFormObject({ ...formObject, foodName: newFood })
-        console.log(formObject)
+        // console.log(formObject)
     }
 
 

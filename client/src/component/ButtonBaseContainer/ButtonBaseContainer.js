@@ -109,7 +109,6 @@ export default function ButtonBaseContainer(props) {
           style={{
             flex: 1,
           }}
-          onclick={console.log('yo')}
         >
           <span
             className={classes.imageSrc}
