@@ -6,12 +6,12 @@ export default {
     },
 
     getRecipe: function(search) {
-        return axios.get(`https://api.spoonacular.com/recipes/findByIngredients?ingredients=${search}&number=3&apiKey=2111bf1d3def4918a76cb5270b0122ce`);
+        return axios.get(`api/ingredients?search=${search}`);
     },
 
     getRecipeURL: function(id){
         console.log(id)
-        return axios.get(`https://api.spoonacular.com/recipes/${id}/information?includeNutrition=false&apiKey=2111bf1d3def4918a76cb5270b0122ce`);
+        return axios.get(`api/recipes?id=${id}`);
     },
 
     getLoggedIn: function(bool){

@@ -35,7 +35,7 @@ router.post("/login", async (req, res) => {
         console.log("you did it???")
         //   ..... further code to maintain authentication like jwt or sessions
         req.session.isLoggedIn = true
-        res.send("Auth Successfu ");
+        res.send("Auth Successful");
       } else {
         console.log("fail1?")
         res.send("Wrong username or password.");
@@ -49,6 +49,19 @@ router.post("/login", async (req, res) => {
     res.status(500).send("Internal Server error Occured");
   }
 });
+
+
+router.get('/ingredient', async (req, res) =>{
+  console.log(req)
+ const getIngredient = await axios.get(`https://api.spoonacular.com/recipes/findByIngredients?ingredients=${req.params.search}&number=3&apiKey=${SPOONACULAR_API_KEY}`);
+res.json(getIngredient)
+})
+
+router.get('/recipe', async (req, res) =>{
+  console.log(req)
+  const getRecipe = await axios.get(`https://api.spoonacular.com/recipes/${req.params.id}/information?includeNutrition=false&apiKey=${SPOONACULAR_API_KEY}`);
+  res.json(getRecipe)
+})
 
 
 router.get('/logout', (req, res) => {
