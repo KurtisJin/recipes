@@ -13,7 +13,7 @@ import ScrollReact from '../component/ScrollUpButton/ScrollReact'
 
 const useStyles = makeStyles((theme) => ({
     root: {
-        
+
         minHeight: '100vh',
         backgroundImage: `url(${process.env.PUBLIC_URL + "cooking4.jpg"})`,
         backgroundRepeat: "no-repeat",
@@ -88,47 +88,57 @@ const useStyles = makeStyles((theme) => ({
 }));
 
 
-export default function ProfilePage() {
-    useEffect(() => {
-    }, [])
-
+const ProfilePage = () => {
     const [recipes, setRecipes] = useState([]);
-    const [recipeURLs, setRecipeURLs] = useState([]);
+    const [recipeURLs, setRecipeURLs] = useState([
+    ]);
     const [formObject, setFormObject] = useState({
-        title: " ",
         foodName: "peaches",
 
     })
-    function SearchRecipes(event) {
-        event.preventDefault();
-        const userQuery = formObject.foodName
-        API.getRecipe(userQuery)
-            .then((res) => {
-                UrlRecipes(res.data)
-             
-            //    console.log(res.data)
+    useEffect(() => {
+        console.log(formObject)
+    }, [formObject])
+
+    ///function to pass IDs from recipes from ingredients to the API to get the sourceURL
+    //fetches the Source URL by mapping through the passed through image data, obtaining the ID and passing it through the API call
+    const urlRecipes = (foodData) => {
+
+        Promise.all(foodData.map((food) => (
+            API.getRecipeURL(food.id)
+        )))
+            .then((responses) => {
+                // let tempRecipes = []
+                // const { data: { sourceUrl } } = res
+                // const recipeData = { ...food, sourceUrl }
+                // tempRecipes.push(recipeData)
+
+                setRecipes(responses.map((response, i) => {
+                    return { ...foodData[i], sourceUrl: response.data.sourceUrl }
+                }))
             }
             )
             .catch(err => console.log(err))
             
+        // setFormObject(formObject)
     }
 
-    function UrlRecipes(foodData) {
-        const imageData = foodData
-        setRecipes(imageData)
-        foodData.map((urlData) => (
-            console.log(urlData.title)
-            // API.getRecipeURL(urlData.id)
-            //     .then((res) => {
-            //         setRecipeURLs(res.data)
-            //          console.log(res.data)
-            //         }
-            //     )
-            //     .catch(err => console.log(err))
-        ))
+    //function to begin search for food based on user search
+    //once search completes pass the response into URLRecipies
+    const searchRecipes = (event) => {
+        event.preventDefault();
+        const userQuery = formObject.foodName
+        API.getRecipe(userQuery)
+            .then(async (res) => {
+                await urlRecipes(res.data)
+
+                //    console.log(res.data)
+            }
+            )
+            .catch(err => console.log(err))
     }
 
-    function handleInputChange(event) {
+    const handleInputChange = (event) => {
         const newFood = event.target.value;
         setFormObject({ ...formObject, foodName: newFood })
         // console.log(formObject)
@@ -140,14 +150,16 @@ export default function ProfilePage() {
     return (
 
         <div className={classes.root}>
-            <ScrollReact/>
+            <ScrollReact />
             <div className="navbar">
                 <Header />
-                </div>
+            </div>
             <h2 className={classes.searchHeader}><Typing /></h2>
-            <form className={classes.form} onSubmit={SearchRecipes} >
-                <h3 className={classes.instructions}><span className={classes.span}>Please type in the ingredient to search for you're receipe you desire. <br></br>For multiple ingredients, please seperate by a comma and a + sign. <br></br>
-                    i.e chicken, +lettuce</span></h3>
+            <form className={classes.form} onSubmit={searchRecipes} >
+                <h3 className={classes.instructions}>
+                    <span className={classes.span}>Please type in the ingredient to search for you're receipe you desire. <br />
+                        For multiple ingredients, please seperate by a comma and a + sign. <br />
+                        i.e chicken, +lettuce</span></h3>
 
                 <input
                     className={classes.searchBar}
@@ -156,12 +168,17 @@ export default function ProfilePage() {
                     placeholder="Type in your search"
                 />
 
-                <input className={classes.button} type="submit"
-                    value="search" />
+                <button
+                    className={classes.button}
+                    type="submit"
+                    value="search"
+                >
+                    Search
+                </button>
 
             </form>
             <div className={classes.secondary}>
-                <ButtonBaseContainer images={recipes}/>
+                <ButtonBaseContainer images={recipes} />
             </div>
             <Footer />
         </div>
@@ -170,5 +187,5 @@ export default function ProfilePage() {
     )
 }
 
-
+export default ProfilePage
 
