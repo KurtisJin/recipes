@@ -10,7 +10,7 @@ const app = express();
 const apiRoutes = require("./routes/apiRoutes");
 
 var store = new MongoDBStore({
-  uri: 'mongodb://localhost/pantry2table',
+  uri: process.env.MONGODB_URI || "mongodb://localhost/pantry2table",
 
   collection: 'mySessions'
 });
