@@ -10,7 +10,7 @@ const app = express();
 const apiRoutes = require("./routes/apiRoutes");
 
 var store = new MongoDBStore({
-  uri: process.env.MONGODB_URI || "mongodb://localhost/pantry2table",
+  uri: process.env.MONGODB_URI,
 
   collection: 'mySessions'
 });
@@ -25,7 +25,7 @@ if (process.env.NODE_ENV === "production") {
 
 // Connect to the Mongo DB
 mongoose.connect(
-  process.env.MONGODB_URI || "mongodb://localhost/pantry2table",
+  process.env.MONGODB_URI,
   { useUnifiedTopology: true, useNewUrlParser: true, useCreateIndex: true }
 );
 
